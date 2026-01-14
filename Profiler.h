@@ -53,11 +53,11 @@ class single_profiler {
 	int depth;
 	int indent;
 	void start() {
-		clock_gettime(CLOCK_MONOTONIC_RAW, &startmark);
+		clock_gettime(CLOCK_MONOTONIC, &startmark);
 	}
 	double stop() {
 		timespec stopmark;
-		clock_gettime(CLOCK_MONOTONIC_RAW, &stopmark);
+		clock_gettime(CLOCK_MONOTONIC, &stopmark);
 		int nsec = stopmark.tv_nsec - startmark.tv_nsec;
 		int sec = stopmark.tv_sec - startmark.tv_sec;
 		return sec + 1e-9 * nsec;
